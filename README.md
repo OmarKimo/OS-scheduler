@@ -1,4 +1,4 @@
-# OS-scheduler
+# OS scheduler
 It's a mini project in my third year at Computer department in Faculty of Engineering Cairo University.
 
 It's an implementation for an Operating systems scheduler which produce schedules of certai process based on some scheduling alogorithms which is:
