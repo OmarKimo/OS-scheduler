@@ -5,11 +5,11 @@ def FCFS(processes, contextSwitchingTime):
         messagebox.showerror('There are not any processes to process!')
         return
     curTime = 0.0
-    idx = 0         # it indicates the index of last non-scheduled or non-arrived process
+    idx = 0         # it indicates the index of last non-scheduled process
     running = []
-    while True:  
+    while True:
         if not len(running) and idx < len(processes):       # save time and jump to the time when the CPU will be running
-            curTime = max(curTime, processes[idx].arrivalTime)    # If curTime has already a value => maximize
+            curTime = max(curTime, processes[idx].arrivalTime) + contextSwitchingTime   # If curTime has already a value => maximize
         for i in range(idx, len(processes)):
             if processes[i].arrivalTime <= curTime:
                 running.append(processes[i])

@@ -13,7 +13,7 @@ def SRTN(processes, contextSwitchingTime):
     while True:
         flag = False 
         if not len(running) and idx < len(processes):  # save time and jump to the time when the CPU will be running
-            curTime = max(curTime, processes[idx].arrivalTime)  # If curTime has already a value => maximize
+            curTime = max(curTime, processes[idx].arrivalTime) + contextSwitchingTime  # If curTime has already a value => maximize
         for i in range(idx, len(processes)):
             if processes[i].arrivalTime <= curTime:
                 idx = i + 1
@@ -24,7 +24,7 @@ def SRTN(processes, contextSwitchingTime):
         running.sort(key = lambda x : x.ETF)    # sort to have the process with the least ETF first
         if not len(running) and idx >= len(processes):  # if I have scheduled all processes
             break
-        if switched and len(running) and running[0].id != switched: 
+        if switched and running[0].id != switched: 
             # If I switched from running process and it didn't terminate, update curTime then repeat the search
             curTime += contextSwitchingTime
             for i in range(idx+1, len(processes)):
@@ -32,7 +32,6 @@ def SRTN(processes, contextSwitchingTime):
                     idx += 1
                     running.append(processes[i])
                 else:
-                    flag = True
                     break
             running.sort(key = lambda x : x.ETF)    # sort to have the process with the least ETF first
         process = running[0]

@@ -1,0 +1,5 @@
+Process # 1 : waiting time = 0.0 turnaround time = 2.0 weighted turnaround time = 1.0
+Process # 2 : waiting time = 4.0 turnaround time = 7.0 weighted turnaround time = 2.33
+Process # 3 : waiting time = 8.0 turnaround time = 16.0 weighted turnaround time = 2.0
+Process # 4 : waiting time = 5.0 turnaround time = 10.0 weighted turnaround time = 2.0
+Average Turnaround Time = 8.75 Average Weighted Turnaround Time = 1.83

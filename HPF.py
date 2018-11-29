@@ -1,5 +1,4 @@
 from Scheduler import *
-from queue import PriorityQueue as pq
 
 def HPF(processes, contextSwitchingTime):
     if not len(processes):
@@ -10,7 +9,7 @@ def HPF(processes, contextSwitchingTime):
     idx = 0         # it indicates the index of last non-scheduled or non-arrived process
     while True:
         if not len(running) and idx < len(processes):               # save time and jump to the time when the CPU will be running
-            curTime = max(curTime, processes[idx].arrivalTime)      # If curTime has already a value => maximize
+            curTime = max(curTime, processes[idx].arrivalTime) + contextSwitchingTime     # If curTime has already a value => maximize
         for i in range(idx, len(processes)):
             if processes[i].arrivalTime <= curTime:
                 running.append(processes[i])

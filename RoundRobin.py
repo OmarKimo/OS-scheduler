@@ -9,9 +9,9 @@ def RoundRobin(processes, contextSwitchingTime, quantum):
     running = []
     switched = None     # to indicate that I haven't finished a process after a quantum
     while True:
-        flag = False # to check if I add any process
+        flag = False    # to check if I add any process
         if not switched and not len(running) and idx < len(processes):   # save time and jump to the time when the CPU will be running
-            curTime = max(curTime, processes[idx].arrivalTime)  # If curTime has already a value => maximize
+            curTime = max(curTime, processes[idx].arrivalTime) + contextSwitchingTime  # If curTime has already a value => maximize
         for i in range(idx, len(processes)):     # check for arrived processes
             if processes[i].arrivalTime <= curTime:
                 idx = i + 1
