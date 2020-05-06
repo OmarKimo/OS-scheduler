@@ -1,6 +1,5 @@
 # OS scheduler
-#### It's a mini project in my third year at Computer department in Faculty of Engineering Cairo University.<br>
-It's an implementation for an Operating systems scheduler which produce schedules of certain processes based on some scheduling alogorithms which is:
+It's an implementation for an Operating systems scheduler which produce schedules of certain processes based on some scheduling alogorithms which are:
 1. Non-Preemptive Highest Priority First. (HPF)
 2. First Come First Served. (FCFS)
 3. Round Robin with fixed time quantum. (RR)
